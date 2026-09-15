@@ -589,12 +589,14 @@ const Header = () => {
             </Popover>
 
             {canManageMenu && (
-              <Link to="/staff/menu">
-                <Button variant="ghost" size="sm" className="text-xs">
-                  <Utensils className="h-4 w-4 mr-1" />
-                  Menu Management
-                </Button>
-              </Link>
+              <div className="hidden xl:block">
+                <Link to="/staff/menu">
+                  <Button variant="ghost" size="sm" className="text-xs">
+                    <Utensils className="h-4 w-4 mr-1" />
+                    Menu Management
+                  </Button>
+                </Link>
+              </div>
             )}
             <Link to="/register">
               <Button variant="ghost" size="sm" className="text-xs">
@@ -637,6 +639,16 @@ const Header = () => {
                     <Briefcase className="h-4 w-4" />
                     Staff Portal
                   </Link>
+                  {canManageMenu && (
+                    <Link
+                      to="/staff/menu"
+                      className="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent xl:hidden"
+                      onClick={() => setIsAccountOpen(false)}
+                    >
+                      <Utensils className="h-4 w-4" />
+                      Menu Management
+                    </Link>
+                  )}
                   <Button
                     variant="ghost"
                     className="w-full justify-start px-3 text-sm"
