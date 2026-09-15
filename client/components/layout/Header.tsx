@@ -21,6 +21,7 @@ import {
   Hotel,
   Menu,
   User,
+  UserPlus,
   Calendar,
   Utensils,
   Briefcase,
@@ -362,7 +363,7 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 w-full overflow-x-hidden border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto flex h-16 w-full max-w-screen-2xl items-center px-4 sm:px-6 lg:px-8">
         <div className="mr-4 hidden min-w-0 md:flex">
           <Link to="/" className="mr-6 flex items-center space-x-2">
@@ -597,6 +598,7 @@ const Header = () => {
             )}
             <Link to="/register">
               <Button variant="ghost" size="sm" className="text-xs">
+                <UserPlus className="mr-1 h-4 w-4" />
                 Join
               </Button>
             </Link>
@@ -608,10 +610,10 @@ const Header = () => {
                   className="sheraton-gradient text-white border-0"
                 >
                   <User className="h-4 w-4 mr-1" />
-                  <span className="hidden sm:inline">Profile</span>
+                  <span>Profile</span>
                   <Badge
                     variant="secondary"
-                    className="ml-2 hidden lg:inline-flex bg-white/20 text-white"
+                    className="ml-2 bg-white/20 text-white"
                   >
                     1,250 pts
                   </Badge>
