@@ -180,7 +180,7 @@ const HomePage = ({ displayName = "Special Guest" }: HomePageProps) => {
               <Link to="/book">
                 <Button
                   size="lg"
-                  className="sheraton-gradient text-white px-8 py-6 text-lg font-semibold luxury-shadow hover:scale-105 transition-transform"
+                  className="sheraton-gradient text-white px-8 py-6 text-lg font-semibold luxury-shadow"
                 >
                   <Hotel className="mr-2 h-5 w-5" />
                   Book Your Special Stay
@@ -237,11 +237,11 @@ const HomePage = ({ displayName = "Special Guest" }: HomePageProps) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {specialFeatures.map((feature, index) => (
               <Link key={index} to={feature.href}>
-                <Card className="group hover:scale-105 transition-all duration-300 luxury-shadow hover:shadow-2xl border-0 overflow-hidden">
+                <Card className="group transition-shadow duration-300 luxury-shadow hover:shadow-2xl border-0 overflow-hidden">
                   <div className={`h-2 bg-gradient-to-r ${feature.gradient}`} />
                   <CardHeader className="text-center">
                     <div
-                      className={`w-16 h-16 mx-auto rounded-full bg-gradient-to-r ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                      className={`w-16 h-16 mx-auto rounded-full bg-gradient-to-r ${feature.gradient} flex items-center justify-center mb-4`}
                     >
                       <feature.icon className="h-8 w-8 text-white" />
                     </div>
@@ -277,9 +277,9 @@ const HomePage = ({ displayName = "Special Guest" }: HomePageProps) => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {specialExperiences.map((experience, index) => (
               <Link key={index} to={experience.href}>
-                <Card className="group hover:scale-105 transition-all duration-300 luxury-shadow hover:shadow-2xl border-0 overflow-hidden">
+                <Card className="group transition-shadow duration-300 luxury-shadow hover:shadow-2xl border-0 overflow-hidden">
                   <CardHeader className="text-center">
-                    <div className="text-6xl mb-4 group-hover:scale-110 transition-transform">
+                    <div className="text-6xl mb-4">
                       {experience.image}
                     </div>
                     <CardTitle className="text-sheraton-navy flex items-center justify-center gap-2">

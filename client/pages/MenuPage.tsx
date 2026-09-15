@@ -324,7 +324,7 @@ const MenuPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sheraton-cream to-background">
-      <div className="container py-8">
+      <div className="container py-8 pb-24 md:pb-8">
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-4">
@@ -486,18 +486,18 @@ const MenuPage = () => {
                     }`}
                   >
                     <CardContent className="p-0">
-                      <div className="flex">
+                      <div className="flex flex-col md:flex-row">
                         {/* Item Image and Basic Info */}
-                        <div className="flex-1 p-6">
-                          <div className="flex items-start justify-between mb-4">
-                            <div className="flex items-center gap-4">
-                              <div className="text-5xl" aria-hidden="true">{item.image}</div>
-                              <div>
-                                <div className="flex items-center gap-2 mb-1">
-                                  <h3 className="text-xl font-bold text-sheraton-navy">
+                        <div className="min-w-0 flex-1 p-4 md:p-6">
+                          <div className="mb-4 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                            <div className="flex min-w-0 items-start gap-3 md:items-center md:gap-4">
+                              <div className="shrink-0 text-4xl md:text-5xl" aria-hidden="true">{item.image}</div>
+                              <div className="min-w-0">
+                                <div className="mb-1 flex flex-wrap items-start gap-2">
+                                  <h3 className="break-words text-lg font-bold text-sheraton-navy md:text-xl">
                                     {item.name}
                                   </h3>
-                                  <div className="flex flex-wrap items-center gap-2 mt-2" aria-label={`${item.name} status`}>
+                                  <div className="flex flex-wrap items-center gap-1.5" aria-label={`${item.name} status`}>
                                     {statusLabels.map((status) => (
                                       <Badge
                                         key={status}
@@ -524,10 +524,10 @@ const MenuPage = () => {
                                     )}
                                   </div>
                                 </div>
-                                <p className="text-muted-foreground mb-2">
+                                <p className="mb-2 break-words text-sm text-muted-foreground md:text-base">
                                   {item.description}
                                 </p>
-                                <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
                                   <span className="flex items-center gap-1">
                                     <Clock className="h-4 w-4" />
                                     {item.cookTime}
@@ -545,8 +545,8 @@ const MenuPage = () => {
                             </div>
 
                             {/* Price and Availability */}
-                            <div className="text-right">
-                              <div className="flex items-center gap-2 mb-2">
+                            <div className="w-full text-left md:w-auto md:text-right">
+                              <div className="mb-2 flex flex-wrap items-center gap-2">
                                 {discountPercent > 0 && (
                                   <span className="text-sm text-muted-foreground line-through" aria-label={`Original price ${formatPrice(item.originalPrice, item.currency)}`}>
                                     {formatPrice(item.originalPrice, item.currency)}
@@ -576,14 +576,14 @@ const MenuPage = () => {
                           </div>
 
                           {/* Detailed Information */}
-                          <div className="mb-4 p-4 bg-gray-50 rounded-lg">
-                            <p className="text-sm text-gray-700 mb-2">
+                          <div className="mb-4 rounded-lg bg-gray-50 p-3 md:p-4">
+                            <p className="mb-2 break-words text-sm text-gray-700">
                               {item.description_full}
                             </p>
                             {item.chef_note && (
                               <div className="flex items-center gap-2 text-xs text-sheraton-gold">
                                 <ChefHat className="h-3 w-3" />
-                                <span className="italic">{item.chef_note}</span>
+                                <span className="break-words italic">{item.chef_note}</span>
                               </div>
                             )}
                           </div>
@@ -595,7 +595,7 @@ const MenuPage = () => {
                                 <video
                                   src={item.mediaUrl}
                                   controls
-                                  className="max-h-64 w-full max-w-xl rounded-md object-contain"
+                                  className="aspect-video max-h-56 w-full max-w-xl rounded-md object-contain md:aspect-auto md:max-h-64"
                                   aria-label={`${item.name} video`}
                                 />
                               ) : (
@@ -612,7 +612,7 @@ const MenuPage = () => {
                           )}
 
                           {/* Tags and Dietary Info */}
-                          <div className="flex items-center gap-2 mb-4">
+                          <div className="mb-4 flex flex-wrap items-center gap-2">
                             <div className="flex items-center gap-1">
                               <Star className="h-4 w-4 text-yellow-500" />
                               <span className="text-sm">
@@ -648,8 +648,8 @@ const MenuPage = () => {
 
                           {/* Special Offer */}
                           {item.special_offer && (
-                            <div className="mb-4 p-3 bg-sheraton-gold/10 rounded-lg border border-sheraton-gold/30">
-                              <div className="flex items-center gap-2 text-sheraton-gold font-medium">
+                            <div className="mb-4 rounded-lg border border-sheraton-gold/30 bg-sheraton-gold/10 p-2 md:p-3">
+                              <div className="flex flex-wrap items-center gap-2 font-medium text-sheraton-gold">
                                 <Gift className="h-4 w-4" />
                                 <span>{item.special_offer}</span>
                               </div>
@@ -657,7 +657,7 @@ const MenuPage = () => {
                           )}
 
                           {/* Add to Cart */}
-                          <div className="flex items-center justify-between">
+                          <div className="flex flex-col items-stretch gap-3 md:flex-row md:items-center md:justify-between">
                             <div className="flex items-center gap-3">
                               {cartQuantity > 0 ? (
                                 <div className="flex items-center gap-2">
@@ -696,7 +696,7 @@ const MenuPage = () => {
                               <Button
                                 variant="outline"
                                 size="sm"
-                                className="text-sheraton-gold border-sheraton-gold"
+                                className="w-full text-sheraton-gold border-sheraton-gold md:w-auto"
                               >
                                 <Bell className="h-4 w-4 mr-2" />
                                 Notify When Available
@@ -715,10 +715,10 @@ const MenuPage = () => {
 
         {/* Floating Cart */}
         {getTotalItems() > 0 && (
-          <div className="fixed bottom-6 right-6 z-50">
-            <Card className="sheraton-gradient text-white border-0 luxury-shadow">
-              <CardContent className="p-4">
-                <div className="flex items-center gap-4">
+          <div className="fixed bottom-4 left-4 right-4 z-50 md:bottom-6 md:left-auto md:right-6">
+            <Card className="sheraton-gradient border-0 text-white luxury-shadow">
+              <CardContent className="p-3 md:p-4">
+                <div className="flex items-center justify-between gap-2 md:gap-4">
                   <div className="relative">
                     <ShoppingCart className="h-6 w-6" />
                     <Badge className="absolute -top-2 -right-2 bg-white text-sheraton-navy min-w-[20px] h-5 p-0 flex items-center justify-center text-xs">
